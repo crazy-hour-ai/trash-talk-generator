@@ -1,0 +1,54 @@
+<header>
+  <!-- navigation -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        {{!-- <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+          width="30" height="30" class="d-inline-block align-top" alt="Trash Talk Generator"> --}}
+        Trash Talk Generator
+      </a>
+    </div>
+  </nav>
+
+  <div class="banner"></div>
+</header>
+
+
+<div class="container">
+  <form method="POST" action="/">
+    <div class="row mt-5 justify-content-between py-4 px-2 bg-secondary">
+      {{#each targets}}
+      <div class="card-deck col-4">
+        <div class="card text-center">
+          <img class="card-img-top" src="{{this.image}}" alt="test">
+          <div class="card-body">
+
+          </div>
+          <div class="card-footer"
+            style="display:flex; flex-direction:column; justify-content: center; align-items: center">
+            <h5>{{this.name }}</h5>
+            <input type="radio" id="target" name="target" value="{{this.name}}" style="height: 1.3em; width: 1.3em"
+              {{#if this.checked }}checked {{/if}}>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+
+    <div class="row px-2 bg-secondary">
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-warning">產生幹話</button>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3">{{trashMessage}}</textarea>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+</div>
